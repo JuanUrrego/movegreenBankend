@@ -4,7 +4,7 @@ const getConnection = async () => {
 
     try {
 
-        const url = "mongodb+srv://juanUrrego:juan123@cluster0.x3t3y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+        const url = "   "
 
         await mongoose.connect(url);
 
