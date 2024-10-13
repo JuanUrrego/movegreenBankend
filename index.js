@@ -8,8 +8,26 @@ const app = express();
 const host = '0.0.0.0';
 const port = process.env.PORT;
 
-app.use(cors({origin: '*', 
-optionsSuccessStatus: 200}));
+const allowedOrigins = [
+    'http://localhost:3000', // Desarrollo
+    'https://super-sherbet-1cbf87.netlify.app' // Producción
+  ];
+  
+  // Configuración de CORS
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Si no hay un origen (por ejemplo, en herramientas como Postman), permite la solicitud
+      if (!origin) return callback(null, true);
+      
+      // Verifica si el origen está en la lista de permitidos
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('No permitido por CORS'));
+      }
+    },
+    optionsSuccessStatus: 200
+  }));
 
 getConnection();
 
