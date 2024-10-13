@@ -10,7 +10,7 @@ const port = process.env.PORT;
 
 const allowedOrigins = [
     'http://localhost:3000', // Desarrollo
-    'https://super-sherbet-1cbf87.netlify.app' // Producción
+    'https://golden-gaufre-a6ef5e.netlify.app' // Producción
   ];
   
   // Configuración de CORS
